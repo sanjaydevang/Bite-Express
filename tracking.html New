@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking - Bite Express</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bite Express</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="tracking.html">Order Tracking</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="jobs.html">Careers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="tracking">
+        <h1>Track Your Order</h1>
+        <input type="text" id="order-id" placeholder="Enter Order ID">
+        <button id="track-order-btn">Track Order</button>
+        <div id="order-status" class="order-status"></div>
+    </section>
+
+    <script>
+        function trackOrder() {
+            const orderId = document.getElementById("order-id").value;
+            const statusDiv = document.getElementById("order-status");
+            if (orderId) {
+                statusDiv.innerHTML = `<p>Your order #${orderId} is <strong>In Progress</strong>.</p>`;
+            } else {
+                statusDiv.innerHTML = `<p>Please enter a valid Order ID.</p>`;
+            }
+        }
+    </script>
+<gmp-map
+      center="43.4142989,-124.2301242"
+      zoom="4"
+      map-id="DEMO_MAP_ID"
+      style="height: 400px"
+    >
+      <gmp-advanced-marker
+        position="47.3900,-122.2106"
+        title="Restaurant"
+      ></gmp-advanced-marker>
+      <gmp-advanced-marker
+        position="47.648994,-122.3503845"
+        title="Hotel"
+      ></gmp-advanced-marker>
+    </gmp-map>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=maps,marker&v=beta"
+      defer
+    ></script>
+</div>
+</body>
+</html>
