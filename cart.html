@@ -1,0 +1,160 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Bite Express</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bite Express</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="tracking.html">Order Tracking</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="cart-section">
+            <h1>Your Cart</h1>
+            <div id="cart-items"></div>
+            <div id="cart-total">
+                <h2>Total: $<span id="total-price">0.00</span></h2>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartItemsDiv = document.getElementById("cart-items");
+            const totalPriceSpan = document.getElementById("total-price");
+    
+            // Load cart from localStorage
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = "<p>Your cart is empty!</p>";
+            } else {
+                let totalPrice = 0;
+    
+                cartItemsDiv.innerHTML = cart
+                    .map(
+                        (item, index) => `
+                        <div class="cart-item">
+                            <p><strong>${item.name}</strong>: $${item.price.toFixed(2)}</p>
+                            <p>Tracking Number: ${item.trackingNumber}</p>
+                            <button class="remove-item" data-index="${index}">Remove</button>
+                        </div>
+                        `
+                    )
+                    .join("");
+    
+                // Calculate the total price
+                totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+                totalPriceSpan.textContent = totalPrice.toFixed(2);
+            }
+    
+            // Add event listeners for the "Remove" buttons
+            document.querySelectorAll(".remove-item").forEach((button) => {
+                button.addEventListener("click", function () {
+                    const itemIndex = parseInt(this.getAttribute("data-index"));
+    
+                    // Remove the item from the cart
+                    cart.splice(itemIndex, 1);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+    
+                    // Reload the cart page
+                    location.reload();
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bite Express</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="tracking.html">Order Tracking</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="cart-section">
+            <h1>Your Cart</h1>
+            <div id="cart-items"></div>
+            <div id="cart-total"></div>
+        </section>
+    </main>
+    <script src="cart.js"></script>
+</body>
+</html>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartItemsDiv = document.getElementById("cart-items");
+            const totalPriceSpan = document.getElementById("total-price");
+    
+            // Load cart from localStorage
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = "<p>Your cart is empty!</p>";
+            } else {
+                let totalPrice = 0;
+    
+                cartItemsDiv.innerHTML = cart
+                    .map(
+                        (item, index) => `
+                        <div class="cart-item">
+                            <p><strong>${item.name}</strong>: $${item.price.toFixed(2)}</p>
+                            <p>Tracking Number: ${item.trackingNumber}</p>
+                            <button class="remove-item" data-index="${index}">Remove</button>
+                        </div>
+                        `
+                    )
+                    .join("");
+    
+                // Calculate the total price
+                totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+                totalPriceSpan.textContent = totalPrice.toFixed(2);
+            }
+    
+            // Add event listeners for the "Remove" buttons
+            document.querySelectorAll(".remove-item").forEach((button) => {
+                button.addEventListener("click", function () {
+                    const itemIndex = parseInt(this.getAttribute("data-index"));
+    
+                    // Remove the item from the cart
+                    cart.splice(itemIndex, 1);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+    
+                    // Reload the cart page
+                    location.reload();
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

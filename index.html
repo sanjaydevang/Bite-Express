@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bite Express - Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -19,20 +20,47 @@
                 <li><a href="jobs.html">Careers</a></li>
             </ul>
         </nav>
+        <div class="cart">
+            <a href="cart.html" class="cart-icon">
+                🛒 Cart <span id="cart-counter">0</span>
+            </a>
+        </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <h1>Welcome to Bite Express</h1>
-        <p>Order your favorite meals directly from hotels and restaurants, with no third-party fees!</p>
-        <a href="menu.html" class="cta">Order Now</a>
+        <div class="hero-content">
+            <h1 id="dynamic-greeting">Welcome to Bite Express</h1>
+            <p>Order your favorite meals directly from hotels and restaurants, with no third-party fees!</p>
+            <a href="menu.html" class="cta">Order Now</a>
+        </div>
     </section>
 
-    
+    <!-- Search Bar -->
+    <section class="search-bar">
+        <input type="text" id="search" placeholder="Search for food items...">
+    </section>
+
+    <!-- Order Tracking Section -->
+    <section class="tracking">
+        <h1>Track Your Order</h1>
+        <input type="text" id="order-id" placeholder="Enter Order ID">
+        <button id="track-order-btn">Track Order</button>
+        <div id="order-status" class="order-status"></div>
+    </section>
+
+    <!-- About Section -->
     <section class="about">
         <h2>About Us</h2>
         <p>Bite Express is a plug-and-play platform that allows hotels and restaurants to manage their food delivery systems independently, saving on third-party fees and offering direct control over orders.</p>
     </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Bite Express. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
     <script src="script.js"></script>
+    <script src="cart.js"></script>
 </body>
 </html>
